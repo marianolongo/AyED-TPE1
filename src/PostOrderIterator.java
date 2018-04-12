@@ -1,9 +1,9 @@
 public class PostOrderIterator<T extends Comparable> implements Iterator<T> {
-    private LinkedList<BinarySearchTree<T>> linkedStack = new LinkedList<>();
-    private LinkedList<T> linkedQueue = new LinkedList<>();
+    private Stack<BinarySearchTree<T>> linkedStack = new Stack<>();
+    private Queue<T> linkedQueue = new Queue<>();
 
     public  PostOrderIterator(BinarySearchTree<T> binarySearchTree) {
-        LinkedList<T> aux = new LinkedList<>();
+        Stack<T> aux = new Stack<>();
         linkedStack.push(binarySearchTree);
         while (!linkedStack.isEmpty()) {
             BinarySearchTree<T> current = linkedStack.pop();
@@ -24,13 +24,11 @@ public class PostOrderIterator<T extends Comparable> implements Iterator<T> {
     }
         @Override
         public T next() {
-            LinkedList<T> aux = linkedQueue;
-            aux.dequeue();
-            return aux.peek();
+            return linkedQueue.dequeue();
         }
 
         @Override
         public boolean hasNext() {
-            return !linkedStack.isEmpty();
+            return !linkedQueue.isEmpty();
         }
 }

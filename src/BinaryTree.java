@@ -17,32 +17,32 @@ public class BinaryTree<T> {
             return;
 
         // Create an empty queue for level order transversal
-        LinkedList<DoubleNode> linkedList = new LinkedList<DoubleNode>();
+        Queue<DoubleNode> queue = new Queue<>();
 
         // Enqueue Root and initialize height
-        linkedList.enqueue(root);
+        queue.enqueue(root);
 
         while(true)
         {
             // nodeCount (queue size) indicates number of nodes
             // at current level.
-            int nodeCount = linkedList.size();
+            int nodeCount = queue.getSize();
             if(nodeCount == 0)
                 break;
 
             // Dequeue all nodes of current level and Enqueue all
             // nodes of next level
             while(nodeCount > 0){
-                DoubleNode<T> node = linkedList.peek();
+                DoubleNode<T> node = queue.peek();
                 if(node.elem != null) {
                     System.out.println(node.elem);
                 }
 
-                linkedList.remove(node);
+                queue.dequeue();
                 if(node.left != null)
-                    linkedList.enqueue(node.left);
+                    queue.enqueue(node.left);
                 if(node.right != null)
-                    linkedList.enqueue(node.right);
+                    queue.enqueue(node.right);
                 nodeCount--;
 
             }
