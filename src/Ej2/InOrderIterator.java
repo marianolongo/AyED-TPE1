@@ -1,3 +1,7 @@
+package Ej2;
+
+import Ej1.Queue;
+
 public class InOrderIterator<T extends Comparable> implements Iterator<T> {
 
     private Stack<BinarySearchTree<T>> linkedStack = new Stack<>();

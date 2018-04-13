@@ -1,3 +1,9 @@
+package Ej2;
+
+import Ej1.Queue;
+import Ej2.BinarySearchTree;
+import Ej2.Iterator;
+
 public class PostOrderIterator<T extends Comparable> implements Iterator<T> {
     private Stack<BinarySearchTree<T>> linkedStack = new Stack<>();
     private Queue<T> linkedQueue = new Queue<>();

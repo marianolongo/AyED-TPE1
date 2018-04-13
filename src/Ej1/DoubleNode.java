@@ -1,6 +1,8 @@
+package Ej1;
+
 public class DoubleNode<T>{
-    T elem;
-    DoubleNode <T> right, left, father;
+    public T elem;
+    public DoubleNode <T> right, left;
     public DoubleNode(T o){
         elem = o;
     }
@@ -14,6 +16,5 @@ public class DoubleNode<T>{
         this.elem = elem;
         this.right = right;
         this.left = left;
-        this.father = father;
     }
 }

@@ -1,3 +1,5 @@
+package Ej1;
+
 public class Queue<T> {
     private Node first;
     private Node last;

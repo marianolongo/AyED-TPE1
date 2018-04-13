@@ -1,3 +1,7 @@
+package Ej2;
+
+import Ej1.DoubleNode;
+
 public class BinarySearchTree<T extends Comparable> {
     private DoubleNode<T> root;
 
