@@ -13,7 +13,6 @@ public class MainEj1 {
 
         binaryTree.printLevelOrder(binaryTree.getNode());
         /*
-
                                   1
                                /     \
                               /       \

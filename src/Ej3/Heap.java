@@ -61,7 +61,6 @@ public class Heap<T>{
             }
 
         }
-
     }
 
     private void upCompare(Node<T> element) {
