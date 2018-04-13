@@ -14,7 +14,7 @@ public class MainEj2 {
         System.out.println();
         Iterator preOrder = myTree.preOrder();
         while(preOrder.hasNext()){
-            System.out.println(preOrder.next());
+          System.out.println(preOrder.next());
         }
         System.out.println();
         System.out.println("InOrder");

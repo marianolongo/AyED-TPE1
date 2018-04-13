@@ -30,11 +30,51 @@ public class BinarySearchTree<T extends Comparable> {
     }
 
     public Iterator<T> preOrder() {
-        return new PreOrderIterator<T>(this);
+        Stack<DoubleNode<T>> stack = new Stack<>();
+        stack.push(root);
+        return new Iterator<T>(){
+            @Override
+            public T next() {
+                if(!hasNext()){
+                    throw new RuntimeException("Next not available");
+                }
+                DoubleNode<T> node = stack.pop();
+                stack.push(node.right);
+                stack.push(node.left);
+                return node.elem;
+            }
+
+            @Override
+            public boolean hasNext() {
+                return !stack.isEmpty();
+            }
+        };
     }
 
     public Iterator<T> inOrder(){
-        return new InOrderIterator<T>(this);
+        Stack<DoubleNode<T>> stack = new Stack<>();
+
+        return new Iterator<T>() {
+            DoubleNode<T> current = root;
+            @Override
+            public T next() {
+                if(!hasNext()){
+                    throw new RuntimeException("Next not available");
+                }
+                while(current != null){
+                    stack.push(current);
+                    current = current.left;
+                }
+                DoubleNode<T> previous = stack.pop();
+                current = previous.right;
+                return previous.elem;
+            }
+
+            @Override
+            public boolean hasNext() {
+                return !stack.isEmpty() && current != null;
+            }
+        };
     }
 
     public Iterator<T> postOrder(){

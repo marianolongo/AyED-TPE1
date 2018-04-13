@@ -8,10 +8,19 @@ public class Stack<T> {
     }
 
     void push(T element){
-        Node previous = first;
-        first = new Node(element, previous);
+        if(element != null) {
+            if (first == null) {
+                first = new Node(element, null);
+            } else {
+                Node previous = first;
+                first = new Node(element, previous);
+            }
+        }
     }
     T pop(){
+        if(isEmpty()){
+            throw new RuntimeException("Is Empty");
+        }
         Node previous = first;
         first = first.next;
         return previous.elem;
