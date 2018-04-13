@@ -1,8 +1,5 @@
 package Ej2;
 
-import Ej2.BinarySearchTree;
-import Ej2.Iterator;
-
 public class MainEj2 {
 
     public static void main(String[] args) {
