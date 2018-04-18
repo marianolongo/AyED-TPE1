@@ -6,8 +6,8 @@ public class MainEj2 {
         BinarySearchTree<Integer> myTree = new BinarySearchTree<>();
         myTree.insert(1);
         myTree.insert(3);
-        myTree.insert(5);
         myTree.insert(2);
+        myTree.insert(5);
         myTree.insert(4);
         myTree.insert(6);
         System.out.println("PreOrder");

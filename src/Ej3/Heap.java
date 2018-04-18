@@ -42,7 +42,7 @@ public class Heap<T>{
         int right = index *2 + 2;
 
         if ((left < elements.length && elements[right] != null) && ( right < elements.length && elements[left] != null)){
-            if (elements[left].priority > elements[right].priority){
+            if (elements[right].priority < element.priority){
                 if (elements[right].priority < element.priority){
                     swap(element,elements[right]);
                     downCompare(elements[right], right);

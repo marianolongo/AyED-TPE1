@@ -36,7 +36,7 @@ public class BinarySearchTree<T extends Comparable> {
             @Override
             public T next() {
                 if(!hasNext()){
-                    throw new RuntimeException("Next not available");
+                    throw new RuntimeException("No next");
                 }
                 DoubleNode<T> node = stack.pop();
                 stack.push(node.right);
@@ -52,14 +52,14 @@ public class BinarySearchTree<T extends Comparable> {
     }
 
     public Iterator<T> inOrder(){
-        Stack<DoubleNode<T>> stack = new Stack<>();
 
         return new Iterator<T>() {
             DoubleNode<T> current = root;
+            Stack<DoubleNode<T>> stack = new Stack<>();
             @Override
             public T next() {
                 if(!hasNext()){
-                    throw new RuntimeException("Next not available");
+                    throw new RuntimeException("No next");
                 }
                 while(current != null){
                     stack.push(current);
@@ -72,7 +72,7 @@ public class BinarySearchTree<T extends Comparable> {
 
             @Override
             public boolean hasNext() {
-                return !stack.isEmpty() && current != null;
+                return !(stack.isEmpty() && current == null);
             }
         };
     }

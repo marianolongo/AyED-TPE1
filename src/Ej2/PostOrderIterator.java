@@ -14,17 +14,16 @@ public class PostOrderIterator<T extends Comparable> implements Iterator<T> {
         while (!linkedStack.isEmpty()) {
             BinarySearchTree<T> current = linkedStack.pop();
             aux.push(current.getRoot().elem);
-
-            if (current.getLeft().isEmpty() == false) {
+            if (!current.getLeft().isEmpty()) {
                 linkedStack.push(current.getLeft());
             }
 
-            if (current.getRight().isEmpty() == false) {
+            if (!current.getRight().isEmpty()) {
                 linkedStack.push(current.getRight());
             }
         }
 
-        while (aux.isEmpty() == false) {
+        while (!aux.isEmpty()) {
             linkedQueue.enqueue(aux.pop());
         }
     }
